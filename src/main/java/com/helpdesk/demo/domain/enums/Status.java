@@ -2,7 +2,7 @@ package com.helpdesk.demo.domain.enums;
 
 public enum Status {
 
-	BAIXA(0, "BAIXA"), MÉDIA(1, "MÉDIA"), ALTA(2, "ALTA");
+	ABERTO(0, "ABERTO"), ANDAMENTO(1, "ANDAMENTO"), ENCERRADO(2, "ENCERRADO");
 
 	private Integer codigo;
 	private String descricao;
@@ -29,6 +29,6 @@ public enum Status {
 				return x;
 			}
 		}
-		throw new IllegalArgumentException("Prioridade invalida");
+		throw new IllegalArgumentException("Status invalido");
 	}
 }
