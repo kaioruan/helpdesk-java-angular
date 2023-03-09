@@ -12,15 +12,20 @@ import com.helpdesk.demo.domain.enums.Perfil;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.FetchType;
+import jakarta.validation.constraints.NotNull;
 
 public class TecnicoDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	protected Integer id;
+	@NotNull(message = "O campo NOME é requirido")
 	protected String nome;
+	@NotNull(message = "O campo CPF é requirido")
 	protected String cpf;
+	@NotNull(message = "O campo EMAIl é requirido")
 	protected String email;
+	@NotNull(message = "O campo SENHA é requirido")
 	protected String senha;
 	@ElementCollection(fetch = FetchType.EAGER)
 	protected Set<Integer> perfis = new HashSet<>();
