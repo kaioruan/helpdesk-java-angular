@@ -7,6 +7,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.helpdesk.demo.domain.enums.Perfil;
 
@@ -28,6 +30,7 @@ public abstract class Pessoa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
 	protected String nome;
+	@CPF
 	@Column(unique = true)
 	protected String cpf;
 	@Column(unique = true)
