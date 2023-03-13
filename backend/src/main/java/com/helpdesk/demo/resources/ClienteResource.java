@@ -1,6 +1,8 @@
 package com.helpdesk.demo.resources;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,14 +45,14 @@ public class ClienteResource {
 	}
 
 	@PostMapping
-	public ResponseEntity<ClienteDTO> create(@Valid @RequestBody ClienteDTO objDTO) {
+	public ResponseEntity<ClienteDTO> create(@Valid @RequestBody ClienteDTO objDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		Cliente newObj = service.create(objDTO);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ClienteDTO> update(@PathVariable Integer id, @Valid @RequestBody ClienteDTO objDTO) {
+	public ResponseEntity<ClienteDTO> update(@PathVariable Integer id, @Valid @RequestBody ClienteDTO objDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		Cliente obj = service.update(id, objDTO);
 		return ResponseEntity.ok().body(new ClienteDTO(obj));
 	}

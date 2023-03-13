@@ -1,16 +1,20 @@
 package com.helpdesk.demo.services;
 
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.helpdesk.demo.domain.Pessoa;
 import com.helpdesk.demo.domain.Cliente;
+import com.helpdesk.demo.domain.Pessoa;
 import com.helpdesk.demo.dtos.ClienteDTO;
-import com.helpdesk.demo.repositories.PessoaRepository;
 import com.helpdesk.demo.repositories.ClienteRepository;
+import com.helpdesk.demo.repositories.PessoaRepository;
 import com.helpdesk.demo.services.exceptions.DataIntegrityViolationException;
 import com.helpdesk.demo.services.exceptions.ObjectNotFoundException;
 
@@ -34,20 +38,30 @@ public class ClienteService {
 		return repository.findAll();
 	}
 
-	public Cliente create(ClienteDTO objDTO) {
+	public Cliente create(ClienteDTO objDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		objDTO.setId(null);
+		String senha = encriptPassword(objDTO.getSenha());
+		objDTO.setSenha(senha);
 		validateCpfEmail(objDTO);
 		Cliente newObj = new Cliente(objDTO);
 		return repository.save(newObj);
 	}
 
-	public Cliente update(Integer id, @Valid ClienteDTO objDTO) {
+	public Cliente update(Integer id, @Valid ClienteDTO objDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		objDTO.setId(id);
 		Cliente oldObj = findById(id);
 		validateCpfEmail(objDTO);
+		String senha = encriptPassword(objDTO.getSenha());
+		objDTO.setSenha(senha);
 		oldObj = new Cliente(objDTO);
 		return repository.save(oldObj);
 	}
+	
+	public static String encriptPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest messageDigest =  MessageDigest.getInstance("SHA-256");
+        messageDigest.update(password.getBytes("UTF-8"));
+        return new BigInteger(1, messageDigest.digest()).toString(16);
+    }
 
 	public void delete(Integer id) {
 		Cliente obj = findById(id);

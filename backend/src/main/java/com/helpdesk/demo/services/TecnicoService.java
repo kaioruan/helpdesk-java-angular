@@ -1,5 +1,9 @@
 package com.helpdesk.demo.services;
 
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +28,7 @@ public class TecnicoService {
 
 	@Autowired
 	private PessoaRepository pessoaRepository;
+	
 
 	public Tecnico findById(Integer id) {
 		Optional<Tecnico> obj = repository.findById(id);
@@ -34,20 +39,30 @@ public class TecnicoService {
 		return repository.findAll();
 	}
 
-	public Tecnico create(TecnicoDTO objDTO) {
+	public Tecnico create(TecnicoDTO objDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		objDTO.setId(null);
 		validateCpfEmail(objDTO);
+		String senha = encriptPassword(objDTO.getSenha());
+		objDTO.setSenha(senha);
 		Tecnico newObj = new Tecnico(objDTO);
 		return repository.save(newObj);
 	}
 
-	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		objDTO.setId(id);
 		Tecnico oldObj = findById(id);
 		validateCpfEmail(objDTO);
+		String senha = encriptPassword(objDTO.getSenha());
+		objDTO.setSenha(senha);
 		oldObj = new Tecnico(objDTO);
 		return repository.save(oldObj);
 	}
+	
+	public static String encriptPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest messageDigest =  MessageDigest.getInstance("SHA-256");
+        messageDigest.update(password.getBytes("UTF-8"));
+        return new BigInteger(1, messageDigest.digest()).toString(16);
+    }
 
 	public void delete(Integer id) {
 		Tecnico obj = findById(id);

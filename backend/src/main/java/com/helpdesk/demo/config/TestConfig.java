@@ -1,5 +1,8 @@
 package com.helpdesk.demo.config;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +17,8 @@ public class TestConfig {
 	private DBService dbService;
 	
 	@Bean
-	public void instanciaDB() {
+	public void instanciaDB() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.dbService.instanciaDB();
 	}
+
 }	
