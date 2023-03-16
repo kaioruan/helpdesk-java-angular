@@ -26,12 +26,14 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 // Para realizar requisições HTTP
 import { HttpClientModule } from '@angular/common/http';
 
-import { NavComponent } from './components/nav.component';
+import { NavComponent } from './components/nav/nav.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
