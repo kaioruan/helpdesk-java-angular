@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -35,13 +36,14 @@ export class TecnicoCreateComponent {
   create(): void {
     this.service.create(this.tecnico).subscribe(() => {
       this.router.navigate(['tecnicos'])
+      swal("Técnico criado com sucesso!");
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
-          alert(element.message);
+          console.log(element.message);
         });
       } else {
-        alert(ex.error.message);
+        console.log(ex.error.message);
       }
     })
   }

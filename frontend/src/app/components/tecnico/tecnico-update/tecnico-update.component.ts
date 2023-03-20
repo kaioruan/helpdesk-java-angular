@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-tecnico-update',
@@ -10,6 +11,7 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
   styleUrls: ['./tecnico-update.component.css']
 })
 export class TecnicoUpdateComponent {
+  regex_cpf: "(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)"
   tecnico: Tecnico = {
     id:         '',
     nome:       '',
@@ -28,7 +30,7 @@ export class TecnicoUpdateComponent {
   constructor(
     private service: TecnicoService,
     private router:          Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void { 
@@ -46,6 +48,7 @@ export class TecnicoUpdateComponent {
   update(): void {
     this.service.update(this.tecnico).subscribe(() => {
       this.router.navigate(['tecnicos'])
+      swal("Técnico atualizado com sucesso!");
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
