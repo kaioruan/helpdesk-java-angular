@@ -38,10 +38,10 @@ export class TecnicoCreateComponent {
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
-          console.log(element.message);
+          alert(element.message);
         });
       } else {
-        console.log(ex.error.message);
+        alert(ex.error.message);
       }
     })
   }
