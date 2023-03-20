@@ -31,6 +31,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -64,9 +65,10 @@ import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecn
     MatTableModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    NgxMaskDirective, NgxMaskPipe
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
