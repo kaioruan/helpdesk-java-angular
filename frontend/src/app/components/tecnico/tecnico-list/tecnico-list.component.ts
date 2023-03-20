@@ -26,6 +26,9 @@ export class TecnicoListComponent {
   }
   findAll() {
     this.service.findAll().subscribe(response => {
+      response.forEach((element) => {
+        element.cpf =  element.cpf.replace(/(\d{3})(\d{3})/g, "$1.$2-");
+      });
       this.ELEMENT_DATA = response;
       this.dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
