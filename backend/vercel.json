@@ -5,8 +5,14 @@
       "src": "pom.xml",
       "use": "@vercel/static-build",
       "config": {
-        "maxLambdaSize": "50mb"
+        "maxLambdaSize": "50mb",
+        "buildCommand": "mvn package -DskipTests=true",
+        "outputDirectory": "target/"
       }
+    },
+    {
+      "src": "src/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
