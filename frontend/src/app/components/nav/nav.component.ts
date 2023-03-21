@@ -11,6 +11,6 @@ export class NavComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigate(['chamados']);
+    this.router.navigate(['chamados/create']);
   }
 }
