@@ -16,14 +16,15 @@
     }
   ],
   "env": {
+    "SERVER_PORT": "8080",
     "SPRING_PROFILES_ACTIVE": "test",
-    "SPRING.H2.CONSOLE.ENABLED": "true",
-    "SPRING.H2.CONSOLE.PATH": "/h2-console",
+    "SPRING_H2.CONSOLE_ENABLED": "true",
+    "SPRING_H2.CONSOLE_PATH": "/h2-console",
     "SPRING_DATASOURCE_DRIVER-CLASS-NAME": "Org.h2.Driver",
     "SPRING_DATASOURCE_URL": "jdbc:h2:mem:testdb",
     "SPRING_DATASOURCE_USERNAME": "sa",
     "SPRING_DATASOURCE_PASSWORD": "",
-    "SPRING.JPA.SHOW-SQL": "true",
-    "SPRING.JPA.PROPERTIES.HIBERNATE.FORMAT_SQL": "true"
+    "SPRING_JPA.SHOW-SQL": "true",
+    "SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL": "true"
   }
 }
