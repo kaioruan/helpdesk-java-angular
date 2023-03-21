@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-cliente-delete',
   templateUrl: './cliente-delete.component.html',
@@ -40,7 +40,12 @@ export class ClienteDeleteComponent {
   delete(): void {
     this.service.delete(this.Cliente.id).subscribe(() => {
       this.router.navigate(['clientes'])
-      swal("Cliente deletado com sucesso!");
+      Swal.fire({
+        title: 'Deletado!',
+        text: 'Remoção foi concluída com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {

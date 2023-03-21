@@ -7,7 +7,7 @@ import { Tecnico } from 'src/app/models/tecnico';
 import { ChamadoService } from 'src/app/services/chamado.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -62,7 +62,12 @@ export class ChamadoUpdateComponent {
 
   update(): void {
     this.chamadoService.update(this.chamado).subscribe(() => {
-      swal("Chamado atualizado com sucesso!");
+      Swal.fire({
+        title: 'Atualização',
+        text: 'Atualização foi concluída com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
       this.router.navigate(['chamados'])
     }, ex => {
       if(ex.error.errors) {

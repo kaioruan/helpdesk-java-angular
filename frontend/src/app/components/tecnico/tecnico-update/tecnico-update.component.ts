@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tecnico-update',
@@ -48,7 +48,12 @@ export class TecnicoUpdateComponent {
   update(): void {
     this.service.update(this.tecnico).subscribe(() => {
       this.router.navigate(['tecnicos'])
-      swal("Técnico atualizado com sucesso!");
+      Swal.fire({
+        title: 'Atualização',
+        text: 'Atualização foi concluída com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {

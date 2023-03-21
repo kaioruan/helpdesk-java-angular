@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cliente-create',
@@ -36,7 +36,12 @@ export class ClienteCreateComponent {
   create(): void {
     this.service.create(this.Cliente).subscribe(() => {
       this.router.navigate(['clientes'])
-      swal("Cliente criado com sucesso!");
+      Swal.fire({
+        title: 'Criado!',
+        text: 'Criação foi concluída com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {

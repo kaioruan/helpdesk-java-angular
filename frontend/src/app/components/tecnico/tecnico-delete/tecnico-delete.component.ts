@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-tecnico-delete',
   templateUrl: './tecnico-delete.component.html',
@@ -40,7 +40,12 @@ export class TecnicoDeleteComponent {
   delete(): void {
     this.service.delete(this.tecnico.id).subscribe(() => {
       this.router.navigate(['tecnicos'])
-      swal("Técnico deletado com sucesso!");
+      Swal.fire({
+        title: 'Deletado!',
+        text: 'Remoção foi concluída com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {

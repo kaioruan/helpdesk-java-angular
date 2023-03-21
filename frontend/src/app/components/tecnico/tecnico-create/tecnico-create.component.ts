@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -36,7 +36,12 @@ export class TecnicoCreateComponent {
   create(): void {
     this.service.create(this.tecnico).subscribe(() => {
       this.router.navigate(['tecnicos'])
-      swal("Técnico criado com sucesso!");
+      Swal.fire({
+        title: 'Criado!',
+        text: 'Criação foi concluída com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {

@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cliente-update',
@@ -48,7 +48,12 @@ export class ClienteUpdateComponent {
   update(): void {
     this.service.update(this.Cliente).subscribe(() => {
       this.router.navigate(['clientes'])
-      swal("Cliente atualizado com sucesso!");
+      Swal.fire({
+        title: 'Atualização',
+        text: 'Atualização foi concluída com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
