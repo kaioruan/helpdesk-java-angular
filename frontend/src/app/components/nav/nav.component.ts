@@ -11,6 +11,6 @@ export class NavComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigate(['chamados/update/1']);
+    this.router.navigate(['chamados/read/1']);
   }
 }
