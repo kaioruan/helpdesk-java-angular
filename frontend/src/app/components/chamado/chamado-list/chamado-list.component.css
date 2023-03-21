@@ -1,0 +1,45 @@
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}
+
+.container button {
+color: black;
+}
+
+button:hover {
+  cursor: pointer;
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(37,97,207,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+hi {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.edit {
+  color: rgb(0, 81, 255);
+}
+
+.delete {
+  color: red;
+}
+
+mat-radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
