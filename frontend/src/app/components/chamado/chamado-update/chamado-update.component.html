@@ -23,7 +23,7 @@
 
   <div class="status-prioridade">
     <mat-form-field appearance="outline">
-      <mat-label>Selecione um status</mat-label>
+      <mat-label>{{ retornaStatus(chamado.status) }}</mat-label>
       <mat-select
         [formControl]="status"
         required
@@ -37,7 +37,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Selecione uma prioridade</mat-label>
+      <mat-label>{{ retornaPrioridade(chamado.prioridade)}}</mat-label>
       <mat-select 
         [formControl]="prioridade"
         required
@@ -56,7 +56,7 @@
       class="full-width"
       appearance="outline"
     >
-      <mat-label>Selecione um técnico</mat-label>
+      <mat-label>{{ chamado.nomeTecnico }}</mat-label>
       <mat-select
         [formControl]="tecnico"
         required
@@ -77,7 +77,7 @@
     <mat-form-field 
       class="full-width"
       appearance="outline">
-      <mat-label>Selecione um cliente</mat-label>
+      <mat-label>{{ chamado.nomeCliente }}</mat-label>
       <mat-select
         [formControl]="cliente"
         required
