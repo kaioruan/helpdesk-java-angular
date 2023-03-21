@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "pom.xml",
+      "use": "@vercel/static-build",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "env": {
+    "SPRING_PROFILES_ACTIVE": "test",
+    "SPRING.H2.CONSOLE.ENABLED": "true",
+    "SPRING.H2.CONSOLE.PATH": "/h2-console",
+    "SPRING_DATASOURCE_DRIVER-CLASS-NAME": "Org.h2.Driver",
+    "SPRING_DATASOURCE_URL": "jdbc:h2:mem:testdb",
+    "SPRING_DATASOURCE_USERNAME": "sa",
+    "SPRING_DATASOURCE_PASSWORD": "",
+    "SPRING.JPA.SHOW-SQL": "true",
+    "SPRING.JPA.PROPERTIES.HIBERNATE.FORMAT_SQL": "true"
+  }
+}
