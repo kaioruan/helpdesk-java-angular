@@ -116,10 +116,10 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 </details>
 <br>
 <br>
-### 👨🏻‍🦱 Busca um Cliente
-| Método   | Funcionalidade                                                                  | URL                           |
-| -------- | ------------------------------------------------------------------------------- | ----------------------------- |
-| `GET` | Rota para buscar um cliente em específico pelo id. | http://localhost:8080/clientes/6 |
+### 👨🏻‍🦱 Clientes
+| Método | Funcionalidade                            | URL                        |
+| ------ | ----------------------------------------- | -------------------------- |
+| `GET`  | Busca todos os clientes cadastrados no banco de dados.. | http://localhost:8080/clientes |
 
 <details>
   <summary>A resposta da requisição é a seguinte, com status 200:</summary>
@@ -142,10 +142,10 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 <br>
 <br>
 
-### 👨🏻‍🦱 Criar um novo Cliente
+### 👨🏻‍🦱 Busca um  Cliente
 | Método   | Funcionalidade                                                                  | URL                           |
 | -------- | ------------------------------------------------------------------------------- | ----------------------------- |
-| `POST` | Rota de criação de novo cliente no banco de dados. | http://localhost:8080/clientes |
+| `POST` | Rota de busca de um cliente no banco de dados. | http://localhost:8080/clientes/1 |
 <details>
   <summary>A estrutura do <code>body</code> da requisição deverá seguir o padrão abaixo:</summary>
 
