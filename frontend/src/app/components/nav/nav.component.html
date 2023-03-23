@@ -1,41 +1,56 @@
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
-    <img src="assets/img/side-image.svg" alt="Imagem de navegação" >
+    <img src="assets/img/side-image.svg" alt="Imagem de navegação" />
     <mat-nav-list class="nav-list">
-      <a mat-list-item routerLink="home" >
-        <i class="material-icons">home</i>
-        Home
+      <a mat-list-item routerLink="home">
+        <div class="list-item">
+          <i class="material-icons">home</i>
+          <span> Home </span>
+        </div>
       </a>
-      <a mat-list-item routerLink="tecnicos" >
-        <i class="material-icons">account_circle</i>
-        Técnicos
+      <a mat-list-item routerLink="tecnicos">
+        <div class="list-item">
+          <i class="material-icons">account_circle</i>
+          <span> Técnicos </span>
+        </div>
       </a>
-      <a mat-list-item routerLink="clientes" >
-        <i class="material-icons">person</i>
-        Clientes
+      <a mat-list-item routerLink="clientes">
+        <div class="list-item">
+          <i class="material-icons">person</i>
+          <span> Clientes </span>
+        </div>
       </a>
       <a mat-list-item routerLink="chamados" >
-        <i class="material-icons">support</i>
-        Chamados
+        <div class="list-item">
+          <i class="material-icons">support</i>
+          <span>Chamados</span>
+        </div>
+
       </a>
-      <a 
-        mat-list-item 
+      <a
+        mat-list-item
         href="https://github.com/kaioruan/helpdesk-java-angular"
         target="_blank"
-        >
-        <i class="material-icons">code</i>
-        Github
-      </a>
 
+      >
+      <div class="list-item">
+        <i class="material-icons">code</i>
+        <span>Github</span>
+      </div>
+
+      </a>
     </mat-nav-list>
   </mat-drawer>
 
   <div class="sidenav-content">
     <app-header></app-header>
-    <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+    <button
+      class="menu mat-elevation-z8"
+      (click)="drawer.toggle()"
+      mat-icon-button
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <router-outlet></router-outlet>
   </div>
-
 </mat-drawer-container>
