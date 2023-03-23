@@ -45,8 +45,7 @@ Para poder executar os testes, na raiz, utilize o comando o comando `npm run pre
 ---
 
 <p align="center">
-[![Watch the video](https://user-images.githubusercontent.com/98183352/227373918-84d6b0e9-fea9-418b-ab4d-bf6fbacbd4e5.png)
-](https://user-images.githubusercontent.com/98183352/227374007-e8db335e-a8ca-4a64-a127-f6a53a781281.mp4)
+[![Watch the video](https://user-images.githubusercontent.com/98183352/227374318-45ff9958-0a34-4487-bbb5-2757ec3ad8f3.png)](https://user-images.githubusercontent.com/98183352/227374367-80900de5-dc5b-4e16-85d8-918b11d1fe22.mp4)
 </p>
 
 ## 📚 Documentação (endpoints BACKEND)
