@@ -272,10 +272,11 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 </details>
 <br>
 <br>
-### 👨🏻‍🦱 Buscar um Técnico
+
+### 👨🏻‍🦱 Buscar um Cliente
 | Método | Funcionalidade                            | URL                        |
 | ------ | ----------------------------------------- | -------------------------- |
-| `GET`  | Busca um técnico específico pelo id. | http://localhost:8080/tecnicos/1 |
+| `GET`  | Busca um Técnico pelo id no banco de dados. | http://localhost:8080/tecnicos/1 |
 
 <details>
   <summary>A resposta da requisição é a seguinte, com status 200:</summary>
@@ -472,10 +473,11 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 </details>
 <br>
 <br>
+
 ### 👨🏻‍🦱 Buscar um Chamado
 | Método | Funcionalidade                            | URL                        |
 | ------ | ----------------------------------------- | -------------------------- |
-| `GET`  | Busca um chamado específico pelo id. | http://localhost:8080/chamados/1 |
+| `GET`  | Busca um chamado pelo id no banco de dados. | http://localhost:8080/chamados/1 |
 
 <details>
   <summary>A resposta da requisição é a seguinte, com status 200:</summary>
