@@ -1,13 +1,29 @@
-FROM node:14
+# Imagem base do Node.js com a versão LTS
+FROM node:lts-alpine as build
 
-# define o diretório de trabalho dentro do contêiner
+# Diretório de trabalho na imagem
 WORKDIR /app
 
-# Copia todos os arquivos do diretório raiz do host para o diretório de trabalho
-COPY . .
+# Copia os arquivos de configuração do package.json para o diretório de trabalho
+COPY package.json ./
 
-# Instala as dependências do npm
+# Instala as dependências do projeto
 RUN npm install
 
-# Define o comando padrão que será executado quando o contêiner for iniciado
-CMD ["npm", "start"]
+# Copia todos os arquivos do projeto para o diretório de trabalho
+COPY . .
+
+# Realiza o build da aplicação Angular
+RUN npm run build
+
+# Imagem base do Nginx
+FROM nginx:alpine
+
+# Copia os arquivos da aplicação para o diretório raiz do Nginx
+COPY --from=build /app/dist/* /usr/share/nginx/html/
+
+# Expõe a porta 80 para tráfego HTTP
+EXPOSE 80
+
+# Comando para iniciar o Nginx
+CMD ["nginx", "-g", "daemon off;"]
