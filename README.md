@@ -116,10 +116,11 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 </details>
 <br>
 <br>
-### 👨🏻‍🦱 Clientes
+
+### 👨🏻‍🦱 Buscar um Cliente
 | Método | Funcionalidade                            | URL                        |
 | ------ | ----------------------------------------- | -------------------------- |
-| `GET`  | Busca todos os clientes cadastrados no banco de dados.. | http://localhost:8080/clientes |
+| `GET`  | Busca um cliente pelo id no banco de dados. | http://localhost:8080/clientes/6 |
 
 <details>
   <summary>A resposta da requisição é a seguinte, com status 200:</summary>
