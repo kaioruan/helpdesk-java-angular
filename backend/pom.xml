@@ -11,6 +11,7 @@
 	<groupId>com.helpdesk</groupId>
 	<artifactId>helpdesk</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>helpdesk</name>
 	<description>Workshop Spring Boot com MongoDB</description>
 	<properties>
