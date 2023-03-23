@@ -116,10 +116,10 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 </details>
 <br>
 <br>
-### 👨🏻‍🦱 Buscar um cliente.
-| Método | Funcionalidade                                                | URL                            |
-| ------ | ------------------------------------------------------------- | ------------------------------ |
-| `GET`  | Busca um cliente em específico pelo ID. | http://localhost:8080/clientes/6 |
+### 👨🏻‍🦱 Buscar um Cliente
+| Método | Funcionalidade                            | URL                        |
+| ------ | ----------------------------------------- | -------------------------- |
+| `GET`  | Busca um cliente específico pelo id. | http://localhost:8080/clientes/6 |
 
 <details>
   <summary>A resposta da requisição é a seguinte, com status 200:</summary>
@@ -271,10 +271,10 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 </details>
 <br>
 <br>
-### 👨🏻‍🦱 Buscar um técnico.
-| Método | Funcionalidade                                                | URL                            |
-| ------ | ------------------------------------------------------------- | ------------------------------ |
-| `GET`  | Busca um técnico em específico pelo ID. | http://localhost:8080/tecnicos/1 |
+### 👨🏻‍🦱 Buscar um Técnico
+| Método | Funcionalidade                            | URL                        |
+| ------ | ----------------------------------------- | -------------------------- |
+| `GET`  | Busca um técnico específico pelo id. | http://localhost:8080/tecnicos/1 |
 
 <details>
   <summary>A resposta da requisição é a seguinte, com status 200:</summary>
@@ -471,10 +471,10 @@ Após isso, você pode acessar a aplicação através do endereço http://localh
 </details>
 <br>
 <br>
-### 🗒️ Buscar um chamado.
-| Método | Funcionalidade                                                | URL                            |
-| ------ | ------------------------------------------------------------- | ------------------------------ |
-| `GET`  | Busca um chamado em específico pelo ID. | http://localhost:8080/chamados/1 |
+### 👨🏻‍🦱 Buscar um Chamado
+| Método | Funcionalidade                            | URL                        |
+| ------ | ----------------------------------------- | -------------------------- |
+| `GET`  | Busca um chamado específico pelo id. | http://localhost:8080/chamados/1 |
 
 <details>
   <summary>A resposta da requisição é a seguinte, com status 200:</summary>
