@@ -1,7 +1,6 @@
 import * as express from 'express';
 import loginRouter from './routers/loginRouter';
 
-
 class App {
   public app: express.Express;
 

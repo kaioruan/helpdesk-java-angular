@@ -32,7 +32,7 @@ class LoginService {
     if (token) {
       const { userId } = token;
       const result = await this.model.findOne(
-        { where: { id: userId }, raw: true },
+        { where: { id: userId }, raw: true, attributes: { exclude: ['password'] } },
       ) as IUser;
       return result;
     }
