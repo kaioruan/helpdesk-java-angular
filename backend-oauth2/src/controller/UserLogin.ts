@@ -42,7 +42,7 @@ class LoginController {
         httpOnly: false, // Acesso apenas via HTTP
         secure: true, // Apenas enviar o cookie via HTTPS
       });
-      res.redirect('http://localhost:4200/login');
+      res.redirect('http://localhost:4200/home');
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: error });

@@ -1,14 +1,14 @@
-import 'dotenv/config';
-import { Options } from 'sequelize';
+// import 'dotenv/config';
+// import { Options } from 'sequelize';
 
-const config: Options = {
+// const config: Options = {
 
-  username: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-  host: process.env.MYSQLHOST,
-  port: Number(process.env.MYSQLPORT),
-  dialect: 'mysql',
-}
+//   username: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   database: 'oauth2',
+//   host: process.env.DB_HOST,
+//   port: Number(process.env.DB_PORT),
+//   dialect: 'mysql',
+// }
 
-module.exports = config;
+// module.exports = config;
