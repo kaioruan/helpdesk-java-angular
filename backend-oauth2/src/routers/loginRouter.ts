@@ -7,7 +7,9 @@ const loginValidation = new LoginValidation();
 
 const loginRouter = express.Router();
 
+loginRouter.get('/salve', (_req, res) => res.json({ ok: true }));
 loginRouter.post('/login', loginValidation.loginV, loginController.login);
 loginRouter.get('/login/validate', loginController.validate);
+loginRouter.get('/api/oauth/google', loginController.googleLogin);
 
 export default loginRouter;

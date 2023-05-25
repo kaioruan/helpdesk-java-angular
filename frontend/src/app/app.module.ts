@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
@@ -43,10 +44,13 @@ import { ChamadoCreateComponent } from './components/chamado/chamado-create/cham
 import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-read.component';
 
+import { CookieService } from 'ngx-cookie-service';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    LoginComponent,
     HomeComponent,
     HeaderComponent,
     TecnicoListComponent,
@@ -88,7 +92,7 @@ import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-
     MatCardModule,
     NgxMaskDirective, NgxMaskPipe
   ],
-  providers: [provideNgxMask()],
+  providers: [ provideNgxMask(), CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

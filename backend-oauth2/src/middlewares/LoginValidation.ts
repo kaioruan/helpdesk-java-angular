@@ -4,9 +4,10 @@ import UserModel from '../database/models/UserModel';
 class LoginValidation {
   public model = UserModel;
   public loginV = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.body);
     const { email, password } = req.body;
-    const REGEX_EMAIL = /\S+@\S+\.\S+/;
-    if (!email || !REGEX_EMAIL.test(email)) {
+    // const REGEX_EMAIL = /\S+@\S+\.\S+/;
+    if (!email) {
       return res.status(400).json({ message: 'All fields must be filled' });
     }
 

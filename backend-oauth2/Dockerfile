@@ -1,6 +1,6 @@
 FROM node:16.14-alpine
 
-WORKDIR /server
+WORKDIR /backend-oauth2
 
 COPY package* ./
 
