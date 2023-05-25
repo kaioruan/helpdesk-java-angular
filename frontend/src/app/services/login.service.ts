@@ -2,42 +2,32 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { API_CONFIG } from '../config/api.config';
-import { User } from '../models/user';
-import { Credenciais } from '../models/credenciais';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { CookieService } from 'ngx-cookie-service';
-
+import { Tecnico } from '../models/tecnico';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  jwtService: JwtHelperService = new JwtHelperService();
 
-  constructor(private http: HttpClient, private cookieService: CookieService,) { }
+  constructor(private http: HttpClient) { }
 
-  loginValidate(token): Observable<User> {
-    return this.http.get<User>(`http://localhost:3001/login/validate`, {
-      headers: {
-        'authorization': `${token}`
-      }
-    });
+  findById(id: any): Observable<Tecnico> {
+    return this.http.get<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${id}`);
   }
 
-  authenticate(creds: Credenciais) {
-      return this.http.post<User>(`http://localhost:3001/login`, creds);
+  findAll(): Observable<Tecnico[]> {
+    return this.http.get<Tecnico[]>(`${API_CONFIG.baseUrl}/tecnicos`);
   }
 
-
-  isAuthenticated() {
-    let token = this.cookieService.get('token');
-    if(token != null) {
-      return !this.jwtService.isTokenExpired(token)
-    }
-    return false
+  create(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.post<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos`, tecnico);
   }
 
-  logout() {
-    this.cookieService.delete('token');
+  update(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.put<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${tecnico.id}`, tecnico);
+  }
+
+  delete(id: any): Observable<Tecnico> {
+    return this.http.delete<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${id}`);
   }
 }
